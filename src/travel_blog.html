@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>India Travel Blog — Explore Destinations</title>
+  <link rel="stylesheet" href="travel_blog.css">
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <div>
+      <div class="logo">India Travels</div>
+      <div class="tagline">Exploring mountains, tea gardens & coastal escapes</div>
+    </div>
+    <nav>
+      <a href="#shimla">Shimla</a>
+      <a href="#coorg">Coorg</a>
+      <a href="#ooty">Ooty</a>
+      <a href="#kodaikanal">Kodaikanal</a>
+      <a href="#goa">Goa</a>
+      <a href="#pondicherry">Pondicherry</a>
+      <a href="#vizag">Vizag</a>
+      <a href="#" onclick="openContactPopup(event)" style="color: var(--color-accent); font-weight: 600;">Contact</a>
+        
+    </nav>
+  </div>
+</header>
+
+<div class="contact-overlay" id="contactOverlay" onclick="closeContactPopup()"></div>
+
+<div class="contact-popup" id="contactPopup">
+  <button class="contact-close" onclick="closeContactPopup()">✖</button>
+  <div class="contact-popup-inner">
+    <h2>Get in Touch</h2>
+    <p>Have questions about our travel destinations? We'd love to hear from you!</p>
+    
+    <div class="contact-item">
+      <div class="contact-icon">📞</div>
+      <div class="contact-info">
+        <h3>Phone</h3>
+        <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <div class="contact-icon">✉️</div>
+      <div class="contact-info">
+        <h3>Email</h3>
+        <p><a href="mailto:kishore.kanna.g64@gmail.com">kishore.kanna.g64@gmail.com</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="hero">
+  <h1>Discover India's Hidden Gem Destinations</h1>
+  <p class="subtitle">A curated guide to the most enchanting hill stations and tea plantations</p>
+  <p class="description">
+    From the misty hills of Shimla to the lush coffee estates of Coorg, India offers an incredible diversity of landscapes and experiences. 
+    Explore our detailed guides to plan your next adventure through mountains, valleys, and pristine natural beauty.
+  </p>
+</section>
+
+<div class="map-wrap" style="position:relative; overflow:visible;">
+    <div class="map-container" style="position:relative; z-index:5;">
+      <img id="indiaImage" src="https://m.media-amazon.com/images/I/71RgfIeTq6L.jpg" alt="India map">
+
+      <div id="shimlaPoint" class="hover-point" style="left:29%; top:22.5%"></div>
+      <div id="coorgPoint" class="hover-point" style="left:27%; top:79%"></div>
+      <div id="ootyPoint" class="hover-point" style="left:29%; top:83%"></div>
+      <div id="kodaiPoint" class="hover-point" style="left:31%; top:86%"></div>
+      <div id="goaPoint" class="hover-point" style="left:20%; top:70%"></div>
+      <div id="pondiPoint" class="hover-point" style="left:40%; top:81%"></div>
+      <div id="vizagPoint" class="hover-point" style="left:47%; top:65%"></div>
+
+      <button class="click-area" aria-label="Shimla" data-place="shimla" style="left:29%; top:22.5%" onmouseover="glowPoint('shimlaPoint')" onmouseout="unglowPoint('shimlaPoint')" onclick="openPlace('shimla')"></button>
+      <button class="click-area" aria-label="Coorg" data-place="coorg" style="left:27%; top:79%" onmouseover="glowPoint('coorgPoint')" onmouseout="unglowPoint('coorgPoint')" onclick="openPlace('coorg')"></button>
+      <button class="click-area" aria-label="Ooty" data-place="ooty" style="left:29%; top:83%" onmouseover="glowPoint('ootyPoint')" onmouseout="unglowPoint('ootyPoint')" onclick="openPlace('ooty')"></button>
+      <button class="click-area" aria-label="Kodaikanal" data-place="kodaikanal" style="left:31%; top:86%" onmouseover="glowPoint('kodaiPoint')" onmouseout="unglowPoint('kodaiPoint')" onclick="openPlace('kodaikanal')"></button>
+      <button class="click-area" aria-label="Goa" data-place="goa" style="left:20%; top:70%" onmouseover="glowPoint('goaPoint')" onmouseout="unglowPoint('goaPoint')" onclick="openPlace('goa')"></button>
+      <button class="click-area" aria-label="Pondicherry" data-place="pondicherry" style="left:40%; top:81%" onmouseover="glowPoint('pondiPoint')" onmouseout="unglowPoint('pondiPoint')" onclick="openPlace('pondicherry')"></button>
+      <button class="click-area" aria-label="Vizag" data-place="vizag" style="left:47%; top:65%" onmouseover="glowPoint('vizagPoint')" onmouseout="unglowPoint('vizagPoint')" onclick="openPlace('vizag')"></button>
+
+    </div>
+  </div>
+
+<div id="popup" class="popup" onmouseleave="closePopup()">
+  <div class="popup-inner" onmouseenter="popupMouseIn()" onmouseleave="popupMouseOut()">
+    <div class="arrow left" onclick="prevSlide()">❮</div>
+    <img id="popupImg" src="" alt="place image">
+    <div class="arrow right" onclick="nextSlide()">❯</div>
+    <div class="caption" id="popupCaption"></div>
+    <a id="moreLink" class="more-link" href="#" onclick="navigateToSection(event, currentPlace)">Read full Details</a>
+    <div class="hint">Move pointer outside to close • Use arrows to change slides</div>
+  </div>
+</div>
+
+
+
+<section class="blog-section" id="shimla">
+    <br>
+    <br>
+    <br>
+  <div class="section-number">/ 01 — Himalayas</div>
+  <h2>Shimla: The Queen of the Hills</h2>
+  <p class="subtitle">Colonial charm meets Himalayan beauty in India's most iconic hill station</p>
+
+  <p>
+    Shimla, perched at 2,159 meters above sea level, is a place where time seems to move slower. 
+    Set against the backdrop of the lower Himalayas, this charming destination retains its colonial heritage while offering modern comforts. 
+    Walk through the misty mornings and you'll understand why the British fell in love with this place.
+  </p>
+
+  <img src="https://www.oyorooms.com/travel-guide/wp-content/uploads/2021/08/BlogImage-12thAug-Shimla_7-1.jpg" alt="Shimla landscape" />
+
+  <p>
+    The town's iconic Mall Road stretches for miles, lined with colonial-era buildings, cafes, and shops. 
+    Whether you're sipping hot tea at a quaint café or browsing local handicrafts, there's a distinct charm that permeates the air. 
+    The nearby Christ Church, one of the oldest churches in North India, stands as a testament to the town's rich history.
+  </p>
+
+  <div class="highlight-box">
+    <strong>Best Time to Visit:</strong> March–June and December–February. 
+    March to May offers pleasant weather and blooming flowers, while December to February brings occasional snowfall, 
+    transforming Shimla into a winter wonderland.
+  </div>
+
+  <p>
+    <strong>Getting There:</strong> Shimla is easily accessible by road from Delhi (around 7 hours) or via the scenic toy-train from Kalka 
+    (a UNESCO World Heritage route that takes about 5 hours). The journey itself is an experience not to be missed.
+  </p>
+
+  <p>
+    Popular activities include nature walks to Jakhoo Temple, heritage strolls through old colonial districts, 
+    trekking to nearby ridges, and indulging in local Himachali cuisine. Don't miss the panoramic views from Kufri and the adventure sports at Narkanda.<br><br>
+     <a id="moreLink" class="more-link" href="https://www.makemytrip.com/hotels/shimla-hotels.html" >Book Hotels</a>
+  </p>
+</section>
+
+<section class="blog-section" id="coorg">
+    <br>
+    <br>
+    <br>
+  <div class="section-number">/ 02 — Western Ghats</div>
+  <h2>Coorg: The Coffee Country</h2>
+  <p class="subtitle">Lush plantations and emerald valleys in South India's most verdant region</p>
+
+  <p>
+    Coorg (officially Kodagu) is often called the coffee capital of India, and for good reason. 
+    Rolling coffee estates, misty mornings, and a sense of serenity make this destination a paradise for travelers seeking solitude and natural beauty. 
+    The region's elevation and climate create an almost perfect environment for growing some of the world's finest coffee.
+  </p>
+
+  <img src="https://thumbs.dreamstime.com/b/village-road-to-home-jungle-forest-coorg-233756065.jpg" alt="Coorg forest roads" />
+
+  <p>
+    The landscape here is dramatically different from other Indian hill stations. Dense forests, cascading waterfalls, 
+    and the famous Abbey Falls create a verdant tapestry that feels almost untouched. Stay at a coffee plantation resort, 
+    wake up to misty mornings, and experience the art of coffee making from seed to cup.
+  </p>
+
+  <div class="highlight-box">
+    <strong>Must-Visit Attractions:</strong> Abbey Falls, Raja's Seat for sunset views, Tadiandamol for trekking, 
+    and the numerous coffee estates that offer guided tours. Don't skip the local Coorg cuisine—chicken curry and pork preparations are legendary.
+  </div>
+
+  <p>
+    The people of Coorg, known as Kodavas, have a unique culture distinct from the rest of India. 
+    Their traditions, martial heritage, and warmth make interactions with locals particularly rewarding. 
+    Visit during the monsoon (June–September) for lush landscapes, or in October–November for clear skies and perfect weather.
+  </p><br><br>
+   <a id="moreLink" class="more-link" href="https://www.makemytrip.com/hotels/coorg-hotels.html" >Book Hotels</a>
+</section>
+
+<section class="blog-section" id="ooty">
+    <br>
+    <br>
+    <br>
+  <div class="section-number">/ 03 — Nilgiris</div>
+  <h2>Ooty: Tea and Timeless Beauty</h2>
+  <p class="subtitle">The jewel of South India's Nilgiri Hills, where tea plantations meet alpine gardens</p>
+
+  <p>
+    Ooty (Ootacamund) is the largest town in the Nilgiri Hills and has been a favorite destination since the days of the Raj. 
+    At 2,240 meters, this cool hill station is famous for its sprawling tea gardens, the iconic toy train journey, 
+    and picturesque botanical gardens that showcase flora from around the world.
+  </p>
+
+  <img src="https://www.indiasinvitation.com/wp-content/uploads/2019/09/Places-to-visit-in-Ooty.jpg" alt="Ooty tea gardens" />
+
+  <p>
+    The Government Botanical Garden is a must-visit, spanning 22 hectares with over 650 species of plants and trees. 
+    Stroll through manicured lawns, exotic flower beds, and ancient trees while enjoying panoramic views of the surrounding hills. 
+    The garden changes with the seasons, offering different experiences throughout the year.
+  </p>
+
+  <div class="highlight-box">
+    <strong>The Nilgiris Mountain Railway:</strong> The toy train from Mettupalayam to Ooty is one of India's most scenic journeys. 
+    Traveling through lush tea gardens and dense forests, watching the landscape transform as you climb, makes this a bucket-list experience.
+  </div>
+
+  <p>
+    From Doddabetta (the highest peak in the Nilgiris) to the tranquil Ooty Lake, there's no shortage of attractions. 
+    Adventure seekers can explore trekking routes, while nature enthusiasts will find endless photo opportunities. 
+    The local market offers traditional crafts, spices, and the region's famous tea varieties.
+  </p><br><br>
+   <a id="moreLink" class="more-link" href="https://www.makemytrip.com/hotels/ooty-hotels.html" >Book Hotels</a>
+</section>
+
+<section class="blog-section" id="kodaikanal">
+    <br>
+    <br>
+    <br>
+  <div class="section-number">/ 04 — Palani Hills</div>
+  <h2>Kodaikanal: The Princess of Hill Stations</h2>
+  <p class="subtitle">Ancient pine forests and pristine lakes wrapped in perpetual mist</p>
+
+  <p>
+    Kodaikanal, set at 2,133 meters above sea level, is often referred to as the "Princess of Hill Stations." 
+    The town is nestled in the Palani Hills and is renowned for its pristine natural beauty, old-world charm, and peaceful atmosphere. 
+    Unlike more developed destinations, Kodaikanal has maintained its quiet, intimate character.
+  </p>
+
+  <img src="https://i0.wp.com/eindiatourism.in/wp-content/uploads/2023/07/Pine-Forest.jpg" alt="Kodaikanal pine forest" />
+
+  <p>
+    The dense pine forests surrounding the town create an ethereal environment, especially during the monsoon season when everything is shrouded in mist. 
+    Kodaikanal Lake, a star-shaped lake at the heart of the town, is perfect for boating, cycling, or simply sitting by the water's edge and watching the world go by. 
+    The town's 26-km lake circuit is a popular trekking route for adventurers.
+  </p>
+
+  <div class="highlight-box">
+    <strong>Top Experiences:</strong> Boating on Kodaikanal Lake, visiting Coaker's Walk for sunset views, exploring Pillar Rocks, 
+    trekking through pine forests, and visiting the Green Valley View (also called Suicide Point—named for its sheer cliff views, not for any dark reason).
+  </div>
+
+  <p>
+    The town is smaller and quieter than Ooty, making it ideal for those seeking introspection and peace. 
+    Local cuisine influenced by Tamil, Malayali, and British traditions is a culinary delight. 
+    Visit in April–May for clear skies, or June–September for the misty monsoon season—both offer distinct but equally beautiful experiences.
+  </p><br><br>
+  <a id="moreLink" class="more-link" href="https://www.makemytrip.com/hotels/hotel-listing/?locusId=CTXKO&locusType=city&city=CTXKO&searchText=Kodaikanal&regionNearByExp=3&country=IN&reference=hotel&type=city&cmp=SEM|D|DH|G|Destination|DH_Destination_CTXKO_Kodaikanal|CTXKO_Hotel|RSA|&mf_source=google&mf_medium=cpc&mf_campaignid=19486083042&cid=Cj0KCQiArOvIBhDLARIsAPwJXObUjuDKu5ahvn2AGCJrrXXuBFpUyVTd2N3RlYICXNWBxtKT8sFAa3waAuNyEALw_wcB&pl=&kw=kodaikanal%20hotels&adg=148534881801&aid=646076316200&campaign_type=search&device=c&mf_campaign={HARDCODE_CAMPAIGN_NAME}&gad_source=1&gad_campaignid=19486083042&gbraid=0AAAAAD5Az1Q8HNIYn3_clJZ_GpnBsggim&gclid=Cj0KCQiArOvIBhDLARIsAPwJXObUjuDKu5ahvn2AGCJrrXXuBFpUyVTd2N3RlYICXNWBxtKT8sFAa3waAuNyEALw_wcB" >Book Hotels</a>
+</section>
+
+<section class="blog-section" id="goa">
+    <br>
+    <br>
+    <br>
+  <div class="section-number">/ 05 — Arabian Sea</div>
+  <h2>Goa: Sun, Sand, and Serenity</h2>
+  <p class="subtitle">Golden beaches, vibrant culture, and Portuguese colonial heritage on India's western coast</p>
+
+  <p>
+    Goa is India's most famous beach destination, a place where pristine Arabian Sea beaches meet lush tropical landscapes. 
+    With a unique blend of Indian and Portuguese influences, Goa offers a distinctive cultural experience that sets it apart from other Indian destinations. 
+    Whether you're seeking relaxation, adventure, or cultural exploration, Goa has something for everyone.
+  </p>
+
+  <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=800&q=80" alt="Goa beaches" />
+
+  <p>
+    The beaches are Goa's crown jewels. From the bustling Baga Beach with its water sports and beach shacks to the quieter, 
+    more serene Palolem Beach in South Goa, each beach has its own character. The sunsets here are legendary—golden light painting the sky 
+    as the sun dips below the horizon, a moment you'll treasure forever.
+  </p>
+
+  <div class="highlight-box">
+    <strong>Cultural Landmarks:</strong> Visit the Basilica of Bom Jesus (a UNESCO World Heritage site), 
+    explore the colorful Portuguese architecture of Panjim, and discover Hindu temples like Mahalaxmi Temple that reflect Goa's spiritual diversity.
+  </div>
+
+  <p>
+    Goa's culinary scene is exceptional. Fresh seafood, coconut-based curries, and the famous Goan fish curry are must-tries. 
+    The state's relaxed atmosphere, combined with vibrant nightlife in areas like Baga and Calangute, makes it perfect for both party-goers and peace-seekers. 
+    Best time to visit: October–March for pleasant weather and lower humidity.
+  </p> <br><br>
+   <a id="moreLink" class="more-link" href="https://www.makemytrip.com/hotels/goa-hotels.html" >Book Hotels</a>
+</section>
+
+<section class="blog-section" id="pondicherry">
+    <br>
+    <br>
+    <br>
+  <div class="section-number">/ 06 — Spiritual Coast</div>
+  <h2>Pondicherry: Where East Meets West</h2>
+  <p class="subtitle">French-inspired colonial charm blended with Indian spirituality and coastal beauty</p>
+
+  <p>
+    Pondicherry, a Union Territory on the Coromandel Coast, is a captivating blend of French colonial architecture, Indian spirituality, 
+    and tropical beaches. Once a French colonial possession, the town retains its European charm with tree-lined streets, French cuisine, 
+    and pastel-colored buildings that transport you to a different era.
+  </p>
+
+  <img src="pondi.jpg" alt="Pondicherry Promenade" />
+
+  <p>
+    The Promenade Beach stretches along the coast with colonial-era architecture on one side and the sparkling Bay of Bengal on the other. 
+    Walk along the seafront in the early morning or late evening and experience the town's unique rhythm. The French Quarter is a photographer's paradise—every corner is picturesque.
+  </p>
+
+  <div class="highlight-box">
+    <strong>Spiritual Experiences:</strong> Visit Auroville, an experimental township dedicated to human unity and spiritual development. 
+    The Matrimandir meditation center offers a profound experience. Also explore Sri Aurobindo Ashram and the ancient temples of Gingee Fort nearby.
+  </div>
+
+  <p>
+    Pondicherry's culinary traditions are unique—French influences blend with Tamil cuisine creating distinctive dishes. 
+    Try French bakeries for croissants and pastries, or enjoy traditional South Indian food at local eateries. 
+    The town's artistic and bohemian vibe attracts creative travelers from around the world. Visit in November–February for perfect weather.
+  </p> <br><br>
+   <a id="moreLink" class="more-link" href="https://www.makemytrip.com/hotels/pondicherry-hotels.html" >Book Hotels</a>
+</section>
+
+<section class="blog-section" id="vizag">
+    <br>
+    <br>
+    <br>
+  <div class="section-number">/ 07 — Coastal Mountains</div>
+  <h2>Vizag: Port City by the Sea</h2>
+  <p class="subtitle">Where Eastern Ghats meet the Bay of Bengal—a emerging destination for adventure and exploration</p>
+
+  <p>
+    Visakhapatnam (Vizag) is a rapidly developing coastal city in Andhra Pradesh that beautifully merges natural beauty with modern infrastructure. 
+    Nestled between the Eastern Ghats and the Bay of Bengal, Vizag offers stunning beaches, water sports, and cultural landmarks. 
+    It's often called the "Jewel of the Bay of Bengal" for its picturesque location and pristine coastline.
+  </p>
+
+  <img src="https://vizagtourism.org.in/images/places-to-visit/header/vizag-3-nights-4-days-tour-packages-header-vizag-tourism.jpg.jpg" alt="Vizag Beach" />
+
+  <p>
+    The city boasts several iconic attractions. Kailasagiri offers panoramic views of the Bay and is perfect for sunset watching. 
+    The INS Kurusura Submarine Museum provides a unique historical experience. Araku Valley, in the nearby Eastern Ghats, is ideal for trekking and experiencing tribal culture. 
+    The beaches here are less crowded than Goa, offering a more serene beach experience.
+  </p>
+
+  <div class="highlight-box">
+    <strong>Adventure Activities:</strong> Parasailing and water sports at Yarada Beach, trekking in Araku Valley, visiting the tribal villages, 
+    and exploring the lush green landscape of the Eastern Ghats. Don't miss the unique experience of the Borra Caves with their stalactite formations.
+  </div>
+
+  <p>
+    Vizag is known for its seafood cuisine—fresh catch prepared in traditional Andhra style. The city is becoming increasingly popular with adventure travelers 
+    and those seeking offbeat destinations. Visit during October–February for the best weather and outdoor activities. 
+    The city's development as a tourism hub makes it an exciting emerging destination to explore.
+  </p> <br><br>
+   <a id="moreLink" class="more-link" href="https://www.makemytrip.com/hotels/visakhapatnam-hotels.html" >Book Hotels</a>
+</section>
+
+<footer>
+  <p>&copy; 2025 India Travels Blog. All rights reserved.</p>
+  <p>
+    Discover more stories at 
+    <a href="#">our homepage</a> | 
+    <a href="#" onclick="openContactPopup(event)">contact us</a>
+  </p>
+</footer>
+
+<script src="travel_blog.js"></script>
+</body>
+</html> 
